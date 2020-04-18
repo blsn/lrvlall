@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{$title}}</h1>
-    <p>This is homepage</p>
+    <div class="jumbotron text-center">
+        <h1>{{$title}}</h1>
+        <p>This is homepage</p>
+    </div>
 @endsection
