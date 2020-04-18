@@ -23,7 +23,7 @@
             "type": "php",
             "request": "launch",
             "pathMappings": {
-                "/home/vagrant/code/lrvlrls": "c:/localdev/lrvlrls"
+                "/home/vagrant/code/lrvlrls": "c:/localdev/lrvlall"
             },
             "port": 9000
         }        
