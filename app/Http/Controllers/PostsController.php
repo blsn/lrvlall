@@ -20,7 +20,7 @@ class PostsController extends Controller
         // $posts = Post::where('title', 'Post two')->get(); // only 'Post'
         // $posts = DB::select('select * from posts where id = ?', [2]); // only post id 2
         // $posts = Post::orderBy('title', 'asc')->take(1)->get(); // limit to 1 post only
-        $posts = Post::orderBy('title', 'asc')->paginate(1); // pagination, given 1 number
+        $posts = Post::orderBy('title', 'desc')->paginate(3); // pagination, given 1 number
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -31,7 +31,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -42,7 +42,15 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
+        $post = new Post; // creatre new post
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+        return redirect('/posts')->with('success', 'Post created');
     }
 
     /**
