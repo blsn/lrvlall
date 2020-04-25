@@ -8,6 +8,11 @@ use DB;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +25,7 @@ class PostsController extends Controller
         // $posts = Post::where('title', 'Post two')->get(); // only 'Post'
         // $posts = DB::select('select * from posts where id = ?', [2]); // only post id 2
         // $posts = Post::orderBy('title', 'asc')->take(1)->get(); // limit to 1 post only
-        $posts = Post::orderBy('title', 'desc')->paginate(3); // pagination, given 1 number
+        $posts = Post::orderBy('created_at', 'desc')->paginate(3); // pagination, given 1 number
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -75,6 +80,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized page');
+        }
         return view('posts.edit')->with('post', $post);
     }
 
@@ -107,6 +115,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized page');
+        }
         $post->delete();
         return redirect('/posts')->with('success', 'Post removed');
     }
