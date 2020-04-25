@@ -24,12 +24,6 @@
 				</li>     
             </ul>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-					<a class="nav-link" href="/posts/create">Create post</a>
-				</li>     
-            </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -49,6 +43,10 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('dashboard')}}">                                        
+                                Dashboard 
+                            </a>
+
                             @can('manage-users')
                                 <a class="dropdown-item" href="{{route('admin.users.index')}}">                                        
                                     User Management 

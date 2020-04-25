@@ -12,8 +12,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <p><a class="btn btn-primary" href="/posts/create">Create post</a></p> 
+                    <h3 class="card-text">Your blog posts</h3>
 
-                    You are logged in!
                 </div>
             </div>
         </div>
