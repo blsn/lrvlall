@@ -24,7 +24,7 @@
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>
         tinymce.init({
-            selector:'textarea#tinymce-editor',
+            selector:'textarea#text-editor',
             height: 300
         });
     </script>
