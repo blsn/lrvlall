@@ -47,6 +47,12 @@
                                 Dashboard 
                             </a>
 
+                            @can('create-posts')
+                                <a class="dropdown-item" href="{{route('publisher.articles.index')}}">                                        
+                                    Article Management 
+                                </a>
+                            @endcan
+
                             @can('manage-users')
                                 <a class="dropdown-item" href="{{route('admin.users.index')}}">                                        
                                     User Management 

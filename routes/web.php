@@ -27,6 +27,7 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+
 // Route::resource('/admin/users', 'Admin\UsersController', ['except' => ['show', 'create', 'store']]);
 
 // Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
@@ -36,3 +37,11 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
+
+
+// Route::get('/publisher/articles', 'Publisher\ArticlesController@index')->name('publisher.articles.index'); // same
+
+Route::namespace('Publisher')->prefix('publisher')->name('publisher.articles.index')->middleware('can:create-posts')->group(function(){
+    Route::get('/articles', 'ArticlesController@index');
+});
+
