@@ -48,13 +48,19 @@
                             </a>
 
                             @can('create-posts')
-                                <a class="dropdown-item" href="{{route('publisher.articles.index')}}">                                        
-                                    Article Management 
+                                <a class="dropdown-item" href="{{route('blog.author')}}">
+                                    Create Posts 
+                                </a>
+                            @endcan
+
+                            @can('manage-posts')
+                                <a class="dropdown-item" href="{{route('blog.publisher')}}">
+                                    Manage Posts 
                                 </a>
                             @endcan
 
                             @can('manage-users')
-                                <a class="dropdown-item" href="{{route('admin.users.index')}}">                                        
+                                <a class="dropdown-item" href="{{route('admin.users.index')}}">
                                     User Management 
                                 </a>
                             @endcan

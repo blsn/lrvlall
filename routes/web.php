@@ -38,10 +38,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
 
-
-// Route::get('/publisher/articles', 'Publisher\ArticlesController@index')->name('publisher.articles.index'); // same
-
-Route::namespace('Publisher')->prefix('publisher')->name('publisher.articles.index')->middleware('can:create-posts')->group(function(){
-    Route::get('/articles', 'ArticlesController@index');
+Route::get('/blog/author', 'Blog\AuthorController@index')->name('blog.author');
+// Route::get('/blog/publisher', 'Blog\PublisherController@index')->name('blog.publisher'); // same as below
+Route::namespace('Blog')->prefix('blog')->name('blog.publisher')->middleware('can:manage-posts')->group(function(){
+    Route::get('/publisher', 'PublisherController@index');
 });
-

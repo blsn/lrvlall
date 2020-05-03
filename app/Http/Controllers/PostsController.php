@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use DB;
+use Gate;
 
 class PostsController extends Controller
 {
@@ -93,7 +94,8 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        if (auth()->user()->id !== $post->user_id) {
+        // if (auth()->user()->id !== $post->user_id) {
+        if (Gate::denies('create-posts')) {
             return redirect('/posts')->with('error', 'Unauthorized page');
         }
         return view('posts.edit')->with('post', $post);
@@ -138,7 +140,8 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        if (auth()->user()->id !== $post->user_id) {
+        // if (auth()->user()->id !== $post->user_id) {
+        if (Gate::denies('create-posts')) {
             return redirect('/posts')->with('error', 'Unauthorized page');
         }
         if($post->cover_image != 'noimage.jpg'){

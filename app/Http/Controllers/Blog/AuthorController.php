@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Publisher;
+namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Gate;
 
-class ArticlesController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,6 +25,6 @@ class ArticlesController extends Controller
         }
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('publisher.articles.index')->with('posts', $user->posts);
+        return view('blog.author')->with('posts', $user->posts);
     }
 }
