@@ -19,6 +19,9 @@ Blog from scratch
 ## rolesScratchPublisher
 Blog managed by roles using Gate
 
+## rolesScratchPublisherAPI
+API Full CRUD
+
 - Admin is the role with the highest level of access
 - Publisher can manage other user's posts
 - Author can create posts
