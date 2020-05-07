@@ -22,8 +22,16 @@ Blog managed by roles using Gate
 ## rolesScratchPublisherAPI
 API Full CRUD
 
-- Admin is the role with the highest level of access
-- Publisher can manage other user's posts
-- Author can create posts
-- User has the lowest level role of access (dashboard)
+
+# Admin is the role with the highest level of access
+- give this role in 'role_user' table
+
+# Publisher can manage other user's posts
+
+# Author can create posts 
+- ..and edit users
+
+# User has the lowest level role of access
+- dashboard
+
 

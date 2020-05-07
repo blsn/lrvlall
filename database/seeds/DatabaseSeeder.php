@@ -16,8 +16,9 @@ class DatabaseSeeder extends Seeder
 		//disable foreign key check for this connection before running seeders
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         
-        $this->call(UsersTableSeeder::class);
-        $this->call(RolesTableSeeder::class);
+        // $this->call(UsersTableSeeder::class); // comment out to not wipe out existing users
+        // $this->call(RolesTableSeeder::class); // comment out to not wipe out existing roles
+        $this->call(PostsTableSeeder::class);
 
         // supposed to only apply to a single connection and reset it's self
 		// but I like to explicitly undo what I've done for clarity
