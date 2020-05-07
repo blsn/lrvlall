@@ -1,6 +1,4 @@
-<p align="center">
-# lrvlall
-</p>
+# <p align="center">lrvlall</p>
 
 ## About lrvlall
 
@@ -23,15 +21,15 @@ Blog managed by roles using Gate
 API Full CRUD
 
 
-# Admin is the role with the highest level of access
-- give this role in 'role_user' table
+- Admin is the role with the highest level of access
+    give this role in 'role_user' table
+- Publisher can manage other user's posts
+- Author can create posts .
+    .and edit users
+- User has the lowest level role of access
+    dashboard
 
-# Publisher can manage other user's posts
+### More info
 
-# Author can create posts 
-- ..and edit users
-
-# User has the lowest level role of access
-- dashboard
 
 
