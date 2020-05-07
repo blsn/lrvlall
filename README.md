@@ -17,7 +17,7 @@ User login and management system with roles
 Blog from scratch
 
 ## rolesScratchPublisher
-Manage blog by roles using Gate
+Blog managed by roles using Gate
 
 - Admin is the role with the highest level of access
 - Publisher can manage other user's posts
